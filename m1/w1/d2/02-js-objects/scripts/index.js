@@ -92,7 +92,6 @@ console.log('propValues', propValues);
 
 
 // Iterate over the dataset easily
-
 var studentObj = {  name: 'Sarah', occupation: 'Program Manager' }
 
 var school = [
