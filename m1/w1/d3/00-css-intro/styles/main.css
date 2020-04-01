@@ -1,0 +1,161 @@
+/* @import "newstyle.css"; */
+
+/*  STYLES  */
+
+/* 
+selector {
+  property: value;
+  property: value;
+  property: value;
+  property: value;
+} 
+*/
+/* 
+Classes are not unique, ids are unique
+Class can be used on multiple elements
+One id per page on an element.
+*/
+/* 
+body {
+  background-color: burlywood;
+  color: white;
+}
+
+p {
+  color: black;
+  font-family: monospace;
+}
+
+h1 {
+  font-family: monospace;
+}
+
+.red-box {
+  background-color: red;
+  width: 200px;
+  height: 50px;
+}
+
+.blue-box {
+  background-color: blue;
+  width: 100px;
+  height: 200px;
+}
+
+.w-border {
+  border: 1px solid white;
+}
+
+#cover-box {
+  background-color: cadetblue;
+  color: pink;
+  width: 100px;
+  height: 50px;
+}
+ */
+body {
+  background-color: deepskyblue;
+}
+
+section {
+  width: 500px;
+  height: 300px;
+  /* 
+  background-image: url("https://image.freepik.com/free-vector/small-green-squares-background_1113-14.jpg");
+  background-repeat: no-repeat;
+  background-size: contain; */
+
+  background: center / contain
+    url("https://image.freepik.com/free-vector/small-green-squares-background_1113-14.jpg");
+
+  /* border-bottom-width: 2px;
+  border-bottom-color: white;
+  border-bottom-style: solid; */
+
+  border-bottom: 2px solid white;
+}
+
+p {
+  color: white;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+  /* text-shadow: 2px 2px red; */
+}
+
+ul {
+  list-style: none;
+  color: color;
+  border: 1px solid white;
+  background: rgba(255, 255, 255, 1);
+  /* 
+  padding-top: 25px;
+  padding-right: 25px;
+  padding-bottom: 50px;
+  padding-left: 15px; 
+  padding: 25px 30px; /*  top/bottom  left/right
+  padding: 25px 50px 30px; /*  top /  horizontal / bottom
+
+  */
+
+  padding: 25px 25px 50px 25px; /* clockwise top right bottom left */
+
+  /*   margin-top: 25px;
+  margin-right: 25px;
+  margin-bottom: 50px;
+  margin-left: 15px;
+ */
+  margin: 25px 25px 50px 15px;
+}
+
+/* 
+Absolute 
+px
+cm
+
+Relative size units
+em - (font-size of the parent element)
+rem - (root element font-size)
+vw - width of the viewport
+vh - height of the viewport
+% - 100% related to the parent 
+*/
+
+/*
+:hover
+:visited
+:active
+*/
+
+a:link {
+  color: blue; /* Unvisited links */
+}
+
+a:visited {
+  color: purple; /* Visited links */
+}
+
+a:hover {
+  background: gold;
+}
+
+a:active {
+  color: red;
+}
+
+p:active {
+  background: gray;
+}
+
+a::before {
+  content: "•";
+  font-size: 20px;
+  color: white;
+}
+
+a::after {
+  content: " (http://google.com)";
+  font-size: 20px;
+}

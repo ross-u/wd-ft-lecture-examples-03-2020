@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>CSS Selectors</title>
+
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap" rel="stylesheet"> -->
+
+    <link rel="stylesheet" href="./styles/main.css">
+  </head>
+  <body>
+
+
+
+    <h2><em>Direct Descendants</em> Selectors (Children)</h2>
+
+    <ul id="menu">  <!-- parent -->
+      <li>1</li> <!-- child -->
+      <li>2</li> <!-- child -->
+      <li>3</li> <!-- child -->
+      <li>4</li> <!-- child -->
+      <li>5</li> <!-- child -->
+    </ul>
+
+
+
+    <h2><em>Descendant</em> Selectors</h2>
+
+    <ul>
+      <em>Item 0</em>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>
+        <em>item 3</em>
+      </li>
+    </ul>
+
+
+
+
+    <h2><em>Adjacent Sibiling</em> Selector</h2>
+    <div>
+      <div>before FORMER</div>
+      <div>before FORMER</div>
+      <div id="former">#former</div>
+      <div>next to FORMER</div>
+      <div>last one...</div>
+      <div>last one...</div>
+    </div>
+
+
+    <h2><em>Multiple selection</em> </h2>
+    <div>
+      <h1>Heading h1</h1>
+      <h2>Heading h2</h2>
+      <h3>Heading h3</h3>
+      <h4>Heading h4</h4>
+      <h5>Heading h5</h5>
+      <h6>Heading h6</h6>
+    </div>
+
+
+    <div id="container">
+      <p>
+        Paragraph child
+      </p>
+    </div>
+
+
+    <div>
+      <p>
+        Another Paragraph child
+      </p>
+
+      <section>
+        <p>
+          Another Paragraph child
+        </p>
+      </section>
+
+    </div>
+
+  </body>
+</html>
