@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap");
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+#menu > li {
+  width: 100px;
+  height: 50px;
+  color: blue;
+}
+
+ul em {
+  color: red;
+}
+
+#former {
+  background-color: aqua;
+}
+
+#former + div {
+  background-color: chartreuse;
+}
+
+h1,
+h3,
+h5 {
+  color: blue;
+}
+
+h2,
+h6,
+div > p {
+  color: green;
+}
