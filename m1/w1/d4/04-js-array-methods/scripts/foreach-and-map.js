@@ -69,14 +69,14 @@ let students = [
   {firstName: 'Sarah', lastName: 'O\'Connor', age: 45},
 ]
 
-const studentNames = students.map(function(studentObj) {
+const studentNames = students.map(function(studentObj, i) {
   return studentObj.firstName;
 });
 
 // ES6 concise arrow and map - remove `return` `{}`
 // const studentNames = students.map((studentObj) => studentObj.firstName);
 
-const studentAge = students.map(function(studentObj) {
+const studentAge = students.map(function(studentObj, i) {
   return studentObj.age;
 });
 
