@@ -185,3 +185,95 @@ const bio = { age: '30', nat: 'Serbia', h: 185};
 const userData = { ...description, ...bio, nat: undefined };
 
 console.log('userData', userData);
+
+
+
+// REST OPERATOR ...
+// It allows to get the remaining arguments passed to a function
+
+function myFunc(arg1) {
+  // console.log(arg1);
+  // console.log(arguments); // special value that exists in function declarations
+}
+
+// `arguments` special array like structure, used to store all arguments passed to a function
+// we never tamper with the `arguments` object
+
+// myFunc('MEOW', 'HELLO', 123, true);
+
+
+
+// Using rest operator  ...
+function myFuncTwo (arg1, ...restOfArgs) {
+  // console.log('arg1', arg1);
+  // console.log('restOfArgs', restOfArgs);
+}
+
+myFuncTwo(1, 5, 'bob', {}, 456, 1, 2, 3, 4, 5, 9999, 'lalala');
+
+
+
+// Rest operatror must come as the last formal parameter
+// function myFuncThree (arg1, ...restOfArgs, lastArgs) {
+//   // console.log('arg1', arg1);
+//   console.log('restOfArgs', restOfArgs);
+// }
+
+
+
+// ARROW FUNCTIONS
+
+
+// ARROW FUNCTION
+// Arrow functions don't have the `arguments` object or `this` value
+const printHello = (name, city) => {
+  console.log('Hello ' + name + ' welcome to ' + city);
+}
+
+const printNumbers = (...randomNums) => {
+  randomNums.forEach( (num) => {
+    console.log(num);
+  })
+}
+
+printHello('Alberto', 'Miami');
+// printNumbers(10, 23,2234,35,45,678,8,789, 45,456,567,789,90);
+
+
+// CONCISE ARROW FUNCTION  - allowed to remove `{}` and the `return`, if used on a single line
+const shortHello = (name) =>  console.log('Hello ' + name);
+
+shortHello('Helen');
+
+
+
+const sumLong = (a, b) => {
+  return a + b;
+} 
+
+const sumShort = (a, b) => a + b;
+
+console.log(sumLong(2,2));
+console.log(sumShort(12,7));
+
+
+// ENHANCED OBJECT LITERALS
+
+const x = '55';
+const y = 'abc';
+
+
+/* 
+const myObj = {
+  x: x,
+  y: y
+}
+*/
+
+const myObj = {
+  x,
+  y
+}
+
+
+console.log('myObj', myObj)

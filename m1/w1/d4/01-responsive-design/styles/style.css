@@ -1,0 +1,74 @@
+body {
+  background: white;
+}
+
+.details {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+/* MEDIA QUERIES */
+
+/* 320px and up */
+@media (min-width: 320px) {
+  body {
+    background-color: blue;
+  }
+}
+
+/* 768px and up */
+@media (min-width: 768px) {
+  body {
+    background-color: green;
+  }
+  p {
+    color: white;
+    font-size: 30px;
+  }
+}
+
+/* 1024px and up */
+@media (min-width: 1024px) {
+  body {
+    background-color: yellow;
+  }
+}
+
+/* 1224px and up */
+@media (min-width: 1224px) {
+  body {
+    background-color: orange;
+  }
+}
+
+/* 1824px and up */
+@media (min-width: 1824px) {
+  body {
+    background-color: aqua;
+  }
+}
+
+/* PARTICLULAR DEVICE SIZES */
+@media (min-width: 800px) and (max-width: 900px) {
+  body {
+    background-color: brown;
+  }
+}
+
+/* 
+
+Common device widths (Generalized - not a set standard)
+
+XS - 360px w
+
+SM - 480px w
+
+MD - 768px w
+
+LG - 1024px w
+
+XL - 1440px w
+
+4K - 2560px w
+
+*/
