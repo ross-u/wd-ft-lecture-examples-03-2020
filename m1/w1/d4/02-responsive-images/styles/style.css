@@ -1,0 +1,31 @@
+h1 {
+  text-align: center;
+  color: navy;
+  margin-top: 70px;
+}
+
+p {
+  text-align: center;
+  font-size: 24px;
+}
+
+/* MAKING THE IMAGE RESPONSIVE */
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* SET THE DIV BACKGROUND */
+.image-div {
+  margin: 0 auto;
+  width: 100%;
+  height: 500px;
+  border: 2px solid navy;
+  /* Link to the background image*/
+  background-image: url("https://blyderivercanyon.co.za/wp-content/uploads/2018/04/banner6.jpg");
+  /**/
+  background-size: cover; /* Cover the entire container */
+  /**/
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -1,0 +1,68 @@
+/* INITIAL STYLES */
+body {
+  background: rgb(25, 7, 37);
+}
+
+.child {
+  width: 180px;
+  height: 180px;
+  text-align: center;
+  margin: 5px;
+  font-size: 30px;
+  background: green;
+}
+
+/* USING FLEXBOX */
+
+/* Flexbox parent/container properties */
+/*
+  flex-direction: row(default) | row-reverse | column | column-reverse;
+  flex-wrap: nowrap(default) | wrap | wrap-reverse;
+  justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;
+  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+  align-items: flex-start | flex-end | center | baseline;
+*/
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  /* align-items: center; */
+}
+
+/* Flexbox children properties */
+/*
+  order: 0; (default)
+  flex-grow: 1; (default)
+  flex-shrink: <number>;  default 0
+  flex-basis: <length> | auto;  default auto
+  flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+*/
+.one {
+  order: 1;
+  background: orange;
+}
+
+.two {
+  order: -1;
+  background: pink;
+}
+
+.bigger {
+  flex-grow: 2;
+  background: aqua;
+}
+
+.child {
+  flex-basis: 300px;
+}
+
+.flexible {
+  /* flex-grow: 2;
+  flex-shrink: 3; */
+  flex: 2 3 200px;
+  background: lightsalmon;
+}

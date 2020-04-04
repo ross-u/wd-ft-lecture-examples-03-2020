@@ -1,0 +1,37 @@
+div {
+  width: 170px;
+  height: 100px;
+  border: 1px solid blue;
+}
+
+/* Width of the element is now 172px, 1px border on each side*
+
+
+/* PADDING PROPERTY
+	padding: <padding-top>, <padding-right>, <padding-bottom>, <padding-left>;
+  padding: <padding top and bottom>, <padding left and right>
+  padding: <padding on all 4 sides>;
+*/
+
+#padded-div {
+  width: 170px;
+  height: 100px;
+  border: 3px solid green;
+  padding: 10px 20px 10px 20px;
+}
+
+/*   Size ? 170px + 40px + 6px */
+
+/* MARGIN PROPERTY
+	margin: <margin-top>, <margin-right>, <margin-bottom>, <margin-left>;
+  margin: <margin top and bottom>, <margin left and right>
+  margin: <margin on all 4 sides>
+*/
+
+#margin-div {
+  width: 170px;
+  height: 100px;
+  border: 3px solid red;
+  padding: 10px;
+  margin: 10px 20px;
+}
