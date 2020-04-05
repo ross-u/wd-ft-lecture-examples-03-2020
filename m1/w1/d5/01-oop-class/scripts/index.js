@@ -40,12 +40,38 @@ class HybridCar extends Car {
     super(brandParam, modelParam); // call Car `class` to create `brand` and `model`
     this.engine = engineParam;
   }
+
+  description () {
+    console.log('Description', this.model + " " + this.engine);
+  }
+
+  // static method is accessible only by the class itself, not by instances
+  static getClassName () {
+    console.log('class name: HybridCar');
+  }
+
 }
 
 
 const hybridToyota = new HybridCar('Toyota', 'Prius', 'electric engine');
 
-console.log('hybridToyota :', hybridToyota);
+hybridToyota.description();
+hybridToyota.drive();
+
+
+// calling the static method
+HybridCar.getClassName();
+
+
+
+
+
+
+
+
+
+class FlyingHybridCar extends HybridCar {
+}
 
 
 
