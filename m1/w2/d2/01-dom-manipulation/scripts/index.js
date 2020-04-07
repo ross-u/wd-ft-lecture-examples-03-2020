@@ -1,3 +1,5 @@
+'use strict'
+
 const h1 = document.querySelector('h1');
 
 const googleLink = document.getElementById('google-link');
