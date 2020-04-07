@@ -4,18 +4,38 @@
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>DOM Manipulation</title>
+    <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
+    <section>
+      <h1 id="main-title" class="headline">Main Title</h1>
+    </section>
+
+
     <a href="https://google.com" id="google-link" class="link">Google</a>
+
+    <div id="dropdown-section" class="test">Dropdown Div</div>
+    <button id="hide-div">Hide</button>
+
 
     <div id="content">
       <h1 id="title">Main title</h1>
       <ul id="item-list">
-        
+
       </ul>
     </div>
 
     <button id="add-item-button">Add item</button>
+
+
+    <form>
+      <label> Name </label>
+      <input id="username" type="text" name="username">
+
+      <button type="submit" id="send-btn"> Send </button>
+    </form>
+
+    <ul id="new-list"></ul>
 
     <!-- Load the .js file at the end so that 
       it executes only after the DOM is ready -->
