@@ -71,10 +71,10 @@ body.insertBefore(articleImage, articleBrief);
 // articleBrief.innerHTML = "";
 
 // To remove an element/node
-articleImage.remove();
+// articleImage.remove();
 
 // To remove an element that is a direct child
-body.removeChild(articleContent);
+// body.removeChild(articleContent);
 
 
 
@@ -215,6 +215,8 @@ console.log('headlineClassEls :', headlineClassEls);
 // const body = document.querySelector('body');
 const section = document.querySelector('section');
 
+// Start travering the DOM (searching through) from element
+// on the lower level in the DOM tree
 const firstH1 = section.querySelector('h1');
 
 console.log('firstH1 :', firstH1);
