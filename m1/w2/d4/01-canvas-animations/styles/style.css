@@ -9,12 +9,7 @@ body {
   visibility: hidden;
 }
 
-#start {
+#buttons {
   position: fixed;
   top: 0;
-}
-
-#stop {
-  position: fixed;
-  top: 20;
 }
