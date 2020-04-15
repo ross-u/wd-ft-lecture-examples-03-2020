@@ -1,0 +1,77 @@
+.box {
+  background-color: turquoise;
+  width: 100px;
+  height: 100px;
+  transition: all 1s; /* slow down transition to the intial style*/
+}
+
+.box:hover {
+  background-color: red;
+  width: 400px;
+  height: 200px;
+  /* transition-property: all;
+  transition-delay: 0.1s;
+  transition-duration: 5s;
+  transition-timing-function: linear; */
+
+  transition: width 4s linear 2s, height 2s linear, background-color 1s linear;
+}
+
+.animated-box {
+  width: 150px;
+  height: 80px;
+  background-color: tomato;
+  margin: 20px;
+  animation-duration: 4s;
+  animation-name: boxSlideIn;
+}
+
+@keyframes boxSlideIn {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: calc(0% +20px);
+  }
+}
+
+.fancy-box {
+  width: 150px;
+  height: 80px;
+  background-color: blue;
+  margin: 20px;
+  position: relative;
+  animation-duration: 1s;
+  animation-name: moveAround;
+  animation-iteration-count: 4;
+  animation-direction: normal;
+}
+
+@keyframes moveAround {
+  0% {
+    background-color: blue;
+    top: 0px;
+    left: 0px;
+  }
+  25% {
+    background-color: red;
+
+    top: 0px;
+    left: 200px;
+  }
+  50% {
+    background-color: blue;
+    top: 200px;
+    left: 200px;
+  }
+  75% {
+    background-color: red;
+
+    top: 200px;
+    left: 0px;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+  }
+}
