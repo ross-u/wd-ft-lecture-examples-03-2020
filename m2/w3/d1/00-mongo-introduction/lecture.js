@@ -86,11 +86,19 @@ db.users.find( { age:  {$gt: 40 }   }  )
 // { $gte: value  } 
 db.users.find( { age:  {$gte: 40 }   }  )
 
-// greater than
+// less than
 // { $lt: value  } 
 db.users.find( { age:  {$lt: 40 }   }  )
 
 
-// greater than or equal
+// less than or equal
 // { $lte: value  } 
 db.users.find( { age:  {$lte: 40 }   }  )
+
+
+// not equal
+//  { $ne: value }
+db.users.find({  age:  {$ne: 40 }   })
+
+// nor - not equal to provided values
+db.users.find({  $nor: [ { age: 40 },   {name: "Anna"}  ]  })
