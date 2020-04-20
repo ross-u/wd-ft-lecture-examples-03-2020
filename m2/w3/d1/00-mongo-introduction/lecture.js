@@ -102,3 +102,80 @@ db.users.find({  age:  {$ne: 40 }   })
 
 // nor - not equal to provided values
 db.users.find({  $nor: [ { age: 40 },   {name: "Anna"}  ]  })
+
+
+
+// Query projection
+db.collection_name.find(  CRITERIA_OBJECT, PROJECTION_OBJECT   )
+
+
+// UPDATE
+
+// updateOne - updates the first found document in the collection
+db.collection_name.updateOne(  QUERY_OBJECT, UPDATE_OBJECT )
+
+db.users.updateOne( { name: "Anna" },  { $set: { name: "Anna - Updated 1"}   }  )
+
+// db.users.updateOne( { name: "Anna", age: 40 },  { $set: { name: "Anna - Updated 1"}   }  )
+
+db.users.updateOne( { _id: ObjectId("5e9d5121b88701d2b09ef8f9") },  { $set: { name: "Anna - Last"}   }  )
+
+
+// updateMany
+db.collection_name.updateMany(  QUERY_OBJECT, UPDATE_OBJECT )
+
+
+var phoneObj = { personal: "", work: "", ext: 0 }
+
+
+db.users.updateMany( {}, {  $set: { phone: phoneObj    }    } )
+
+db.users.updateMany( {}, {  $set: { "phone.ext": "+34"    }    } )
+
+db.users.updateMany( {}, {  $set: { "phone.whatsapp": ""    }    } )
+
+
+// replaceOne - it replaces the document object, leaving the previous `_id`
+db.collection_name.replaceOne( QUERY_OBJECT, NEW_OBJECT )
+
+var newUser = {
+  "name": "Susan",
+  "city": "Barcelona",
+  "phone": {
+    "personal": "",
+    "work": "",
+    "ext": "+34",
+    "whatsapp": ""
+  }
+}
+
+db.users.replaceOne( 
+  { _id: ObjectId("5e9d5c0cb88701d2b09ef8ff") },
+  newUser
+)
+
+
+// DELETE
+// deleteOne - targets the first found docuemnt in the collection
+db.collection_name.deleteOne({  key:value } )
+
+
+db.users.deleteOne( {name:  'Marco'} )
+
+// MAC -  Ctrl + K
+// Linux - Ctrl + L
+
+// deleteMany 
+db.collection_name.deleteMany( {  key:value } )
+
+db.users.deleteMany( {name:  'Marco'} )
+
+// BE CAREFUL
+db.collection_name.deleteMany( {} )
+
+
+// Drop the collection
+db.collection_name.drop()
+
+// Drop the database
+db.dropDatabase()
