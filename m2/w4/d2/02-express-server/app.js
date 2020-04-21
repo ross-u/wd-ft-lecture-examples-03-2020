@@ -1,7 +1,6 @@
 const express = require("express");
 
-// Create the server instance
-const app = express();
+const app = express(); // server object that listens for request
 const PORT = 3000;
 
 // Sets a middleware to be used during the request/reponse
