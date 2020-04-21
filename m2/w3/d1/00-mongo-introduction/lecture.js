@@ -179,3 +179,21 @@ db.collection_name.drop()
 
 // Drop the database
 db.dropDatabase()
+
+
+// Get's all of the documents where the object nested in the points array has
+// bonus field less than 10
+db.employees.find(
+  { "points.bonus": {$lt: 10 } },
+)
+
+// Updates all of the nested objects inside of the points array 
+// that have bonus field less than 10
+db.employees.updateMany(
+  { "points.bonus": {$lt: 10 } },
+  { $set: {"points.$.bonus": 500} }
+)
+
+
+
+
