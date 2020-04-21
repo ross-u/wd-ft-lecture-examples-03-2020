@@ -8,18 +8,18 @@ const PORT = 3000;
 // middleware for static files
 app.use(express.static("public"));
 
-// GET     localhost:3000/    - route/endpoint
+//       /         GET    - route/endpoint
 app.get("/", (req, res, next) => {
   console.log(__dirname);
   res.sendFile(__dirname + "/public/views/index.html");
 });
 
-// GET     localhost:3000/about    - route/endpoint
+//       /about    GET     - route/endpoint
 app.get("/about", (req, res, next) => {
   res.sendFile(__dirname + "/public/views/about.html");
 });
 
-// GET     localhost:3000/about    - route/endpoint
+// GET    /test    GET     - route/endpoint
 app.get("/test", (req, res, next) => {
   res.send("<h1>TEST - send a html string</h1>");
 });
