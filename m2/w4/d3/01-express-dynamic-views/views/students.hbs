@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h3>accessing nested values</h3>
+  <h4>
+    {{info.name}}
+  </h4>
+
+  <h4>
+    {{info.campus}}
+  </h4>
+
+  <p>{{info.descr.content}}</p>
+
+
+
+
+  <hr>
+
+  <h3>@first @last</h3>
+
+  <ul>
+    {{#each cities}}
+
+    {{#if @first}}
+    <li>First: {{this}}</li>
+
+    {{else if @last}}
+    <li>Last: {{this}}</li>
+
+    {{else}}
+    <li>{{this}}</li>
+
+    {{/if}}
+    {{/each}}
+  </ul>
+
+
+
+  <hr>
+  <h3>@key</h3>
+
+  <ul>
+    {{#each info}}
+    <li> {{@key}}: {{this}}</li>
+    {{/each}}
+  </ul>
+
+
+
+
+
+
+
+  <h3>@index</h3>
+
+  <ul>
+    {{#each cities}}
+    <li>{{oneUp @index}} {{toUpper this}}</li>
+    {{/each}}
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h3>#each else</h3>
+
+  {{#each flights}}
+  <h4>{{this}}</h4>
+  {{else}}
+  <h4>Sorry no flights found!</h4>
+  {{/each}}
+
+
+
+
+
+
+
+
+
+
+
+  <hr>
+
+  <h3>#each</h3>
+
+  <ul>
+
+    {{#each cities}}
+    <li>{{ this }}</li>
+    {{/each}}
+
+  </ul>
+
+
+
+
+
+
+
+  <hr>
+
+  <h3>#unless</h3>
+  {{#unless address}}
+  WARNING: No address found!
+  {{/unless}}
+
+
+
+  <hr>
+
+  <h3>#if</h3>
+  <h3>#else</h3>
+
+  {{#if address}}
+  <h4> Address: {{ address}} </h4>
+  {{else}}
+  <h4>Address Not Found!</h4>
+  {{/if}}
+
+
+
+
+  <hr>
+
+  {{#if message}}
+  <h3>#if</h3>
+  <h3>{{message}}</h3>
+  {{/if}}
+
+
+  <h1>Hello {{name}} </h1>
+  <p>Welcome to {{ bootcamp }}</p>
+  <img src="http://giphygifs.s3.amazonaws.com/media/FQyQEYd0KlYQ/giphy.gif" alt="">
+
+</body>
+
+</html>
