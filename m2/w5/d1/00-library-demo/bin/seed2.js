@@ -171,9 +171,9 @@ mongoose.connect(
 .then( (x) => {
   console.log(`Connected to DB: ${x.connections[0].name}`);
   // 2. CREATE THE DOCUMENTS FROM THE ARRAY OF `books`
-  const bookPromises = seedDatabase(books);
+  const bookPromisesArr = seedDatabase(books);
 
-  const whenAllDone = Promise.all(bookPromises);
+  const whenAllDone = Promise.all(bookPromisesArr);
   return whenAllDone;
 })
 .then((createdBooks) => {
