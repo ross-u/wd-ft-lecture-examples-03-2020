@@ -7,10 +7,10 @@
 {{#each allBooks}}
 <p class="book-title">
 
-  <a href="/books/edit" class="edit-button">
+  <a href="/books/edit/{{this._id}}" class="edit-button">
     EDIT
   </a>
 
-  <a href="/books/details"> {{this.title}} </a>
+  <a href="/books/details/{{this._id}}"> {{this.title}} </a>
 </p>
 {{/each}}

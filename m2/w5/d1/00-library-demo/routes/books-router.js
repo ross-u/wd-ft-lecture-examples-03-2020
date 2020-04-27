@@ -34,4 +34,52 @@ booksRouter.get('/add', (req, res) => {
 })
 
 
+// GET     /books/edit/:bookId   - Display the edit form
+booksRouter.get('/edit/:bookId', (req, res) => {
+  const { bookId } = req.params;
+
+  Book.findById( bookId )
+    .then( (book) => {
+      res.render('book-edit', { book: book } );
+    })
+    .catch( (err) => console.log(err));
+})
+
+
+
+// POST     /books/edit/:bookId    - Takes the update data for the book
+booksRouter.post('/edit/:bookId', (req, res) => {
+  const { bookId } = req.params;
+  const { title, description, author, rating } = req.body;
+  
+  Book.updateOne( { _id: bookId }, {title, description, author, rating})
+    .then( () => {
+      res.redirect('/books');
+    })
+    .catch( (err) => console.log(err));
+});
+
+
+// GET     /books/details/:bookId
+booksRouter.get('/details/:bookId', (req, res) => {
+  const { bookId } = req.params;
+
+  Book.findById( bookId )
+    .then( (book) => {
+      res.render('book-details', { book: book } )
+    })
+    .catch( (err) => console.log(err));
+})
+
+
+// GET      /books/delete/:bookId
+booksRouter.get('/delete/:bookId', (req, res) => {
+  const { bookId } = req.params;
+
+  Book.findByIdAndRemove( bookId )
+    .then( () => res.redirect('/books'))
+    .catch( (err) => console.log(err));
+})
+
+
 module.exports = booksRouter;

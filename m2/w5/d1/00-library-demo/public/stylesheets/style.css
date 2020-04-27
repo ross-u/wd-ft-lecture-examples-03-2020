@@ -21,3 +21,13 @@ a {
   text-decoration: none;
   color: black;
 }
+
+.return-button {
+  margin-right: 20px;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 25px;
+  background-color: rgba(37, 37, 197, 0.63);
+  border-radius: 4px;
+  font-size: 18px;
+}
