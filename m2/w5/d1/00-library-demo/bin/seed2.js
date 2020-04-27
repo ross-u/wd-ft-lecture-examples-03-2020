@@ -150,14 +150,14 @@ const books = [
 // returns pending promises
 function seedDatabase (booksArr) {
 
-    const pr = booksArr.map((bookObj) => {
+    const bookPromises = booksArr.map((bookObj) => {
 
-      return Author.create(bookObj.author)  // 1
+      return Author.create(bookObj.author)
         .then( (author) =>  {
           return Book.create({ ...bookObj, author: author._id })
         })
     })
-    return pr;
+    return bookPromises;
 }
 
 
