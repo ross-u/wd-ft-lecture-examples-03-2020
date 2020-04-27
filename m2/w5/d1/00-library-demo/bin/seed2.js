@@ -148,24 +148,6 @@ const books = [
 
 // Helper function - Creates books and authors
 // returns pending promises
-// function populateDatabase (booksArr) {
-
-//   const promiseArr = booksArr.map( (bookObj) => {
-
-//     const chainedPr = Author.create(bookObj.author)
-//       .then( (createdAuthor) => {
-//         return Book.create( { ...bookObj, author: createdAuthor._id }  )
-//       })
-//       .catch( (err) => console.log(err));
-
-//     return chainedPr;  // save one chained promise in the array
-//   });
-
-//   return promiseArr; // return the array of all the promises
-// }
-
-
-
 function seedDatabase (booksArr) {
 
     const authorPromises = booksArr.map((bookObj) => {
@@ -180,11 +162,7 @@ function seedDatabase (booksArr) {
 
 
 
-
-
-
 // SEED SEQUENCE
-
 // 1. CONNECT TO MONGOOSE
 mongoose.connect(
   `mongodb://localhost:27017/${DB_NAME}`, 
@@ -199,6 +177,7 @@ mongoose.connect(
   return whenAllDone;
 })
 .then((createdBooks) => {
+  // 3. CLOSE THE CONNECTION
   console.log('Inserted books:', createdBooks.length );
   mongoose.connection.close();
 });

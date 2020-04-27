@@ -23,7 +23,6 @@ booksRouter.post('/add', (req, res) => {
   // ADD BOOK TO DB
   Book.create(  { title, description, author, rating }  )
    .then( (book) => {
-     // REDIRECT
      res.redirect('/books');
    })
    .catch( (err) => console.log(err));
