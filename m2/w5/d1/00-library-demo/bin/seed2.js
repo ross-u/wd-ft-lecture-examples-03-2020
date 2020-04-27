@@ -150,14 +150,14 @@ const books = [
 // returns pending promises
 function seedDatabase (booksArr) {
 
-    const authorPromises = booksArr.map((bookObj) => {
+    const pr = booksArr.map((bookObj) => {
 
       return Author.create(bookObj.author)  // 1
         .then( (author) =>  {
           return Book.create({ ...bookObj, author: author._id })
         })
     })
-    return authorPromises;
+    return pr;
 }
 
 
@@ -171,9 +171,9 @@ mongoose.connect(
 .then( (x) => {
   console.log(`Connected to DB: ${x.connections[0].name}`);
   // 2. CREATE THE DOCUMENTS FROM THE ARRAY OF `books`
-  const authorPromises = seedDatabase(books);
+  const bookPromises = seedDatabase(books);
 
-  const whenAllDone = Promise.all(authorPromises);
+  const whenAllDone = Promise.all(bookPromises);
   return whenAllDone;
 })
 .then((createdBooks) => {
