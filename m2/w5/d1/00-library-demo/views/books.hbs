@@ -1,0 +1,16 @@
+<h1>BOOKS PAGE</h1>
+
+<a href="/books/add">
+  <button>ADD NEW BOOK</button>
+</a>
+
+{{#each allBooks}}
+<p class="book-title">
+
+  <a href="/books/edit" class="edit-button">
+    EDIT
+  </a>
+
+  <a href="/books/details"> {{this.title}} </a>
+</p>
+{{/each}}
