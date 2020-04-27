@@ -168,15 +168,15 @@ const books = [
 
 function seedDatabase (booksArr) {
 
-  const promiseArr = booksArr.map( (bookObj) => {
+    const authorPromises = booksArr.map((bookObj) => {
 
-    const pr = Author.create(bookObj.author)
-    return pr;  // save one chained promise in the array
-  });
-
-  return promiseArr; // return the array of all the promises
+      return Author.create(bookObj.author)  // 1
+        .then( (author) =>  {
+          return Book.create({ ...bookObj, author: author._id })
+        })
+    })
+    return authorPromises;
 }
-
 
 
 
@@ -193,6 +193,12 @@ mongoose.connect(
 .then( (x) => {
   console.log(`Connected to DB: ${x.connections[0].name}`);
   // 2. CREATE THE DOCUMENTS FROM THE ARRAY OF `books`
-  const booksPrArr = seedDatabase(books);
-  const whenAllDonePr = Promise.all(booksPrArr);
+  const authorPromises = seedDatabase(books);
+
+  const whenAllDone = Promise.all(authorPromises);
+  return whenAllDone;
 })
+.then((createdBooks) => {
+  console.log('Inserted books:', createdBooks.length );
+  mongoose.connection.close();
+});
