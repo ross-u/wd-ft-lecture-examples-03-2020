@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{ title }}</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>{{ title }}</h1>
+  <ul>
+    {{#each celebritiesResume}}
+    <li>
+      <a href="/celebrities/{{ this._id }}">
+        {{ this.name }}
+      </a>
+      - {{ this.occupation }}
+      <a href="/celebrities/{{ this._id }}/edit">Edit</a>
+      <form action='/celebrities/delete/{{this._id}}' method="POST">
+        <button type='submit'>Delete</button>
+      </form>
+
+    </li>
+    {{/each}}
+  </ul>
+
+  <a href="/celebrities/new">
+    Click here to add a new celebrity
+  </a>
+</body>
+
+</html>
