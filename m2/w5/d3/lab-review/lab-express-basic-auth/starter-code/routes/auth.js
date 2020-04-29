@@ -5,14 +5,12 @@ const User = require("./../models/user-model");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-const zxcvbn = require("zxcvbn");
+// SIGNUP
 
-// GET    '/auth/signup'     -  Renders the signup form
 authRouter.get("/signup", (req, res) => {
   res.render("auth-views/signup-form");
 });
 
-// POST    '/auth/signup'
 authRouter.post("/signup", (req, res, next) => {
   // 1. Get the username and password from req.body
   const { username, password } = req.body;
@@ -24,19 +22,6 @@ authRouter.post("/signup", (req, res, next) => {
     });
     return; // stops the execution of the function furhter
   }
-
-  // 2.2 Verify the password strength
-  // const passwordStrength = zxcvbn(password).score;
-
-  // console.log("zxcvbn(password) :>> ", zxcvbn(password));
-  // console.log("passwordStrenth :>> ", passwordStrength);
-  // if (passwordStrength < 3) {
-  //   res.render("auth-views/signup-form", {
-  //     errorMessage: zxcvbn(password).feedback.warning,
-  //   });
-  //   return;
-  // }
-
   // 3. Check if the username is not taken
   User.findOne({ username })
     .then((userObj) => {
@@ -71,18 +56,20 @@ authRouter.post("/signup", (req, res, next) => {
   // X.  Catch errors coming from calling to User collection
 });
 
-// GET  '/auth/login'
+// LOGIN
+
 authRouter.get("/login", (req, res) => {
   res.render("auth-views/login-form");
 });
 
-// POST    '/auth/login'
 authRouter.post("/login", (req, res, next) => {
   const { password, username } = req.body;
 
   // 1. Check if the username and password are provided
   if (username === "" || password === "") {
-    res.render("auth-views/login-form", { errorMessage: "Username and Password are required." });
+    res.render("auth-views/login-form", {
+      errorMessage: "Username and Password are required.",
+    });
     return; // stops the execution of the function further
   }
 
@@ -91,13 +78,19 @@ authRouter.post("/login", (req, res, next) => {
     .then((user) => {
       // 3.1 If the user is not found, show error message
       if (!user) {
-        res.render("auth-views/login-form", { errorMessage: "Input invalid" });
+        res.render("auth-views/login-form", {
+          errorMessage: "Invalid user name",
+        });
       } else {
         // 3.2 If user exists ->  Check if the password is correct
         const encryptedPassword = user.password;
         const passwordCorrect = bcrypt.compareSync(password, encryptedPassword);
 
-        if (passwordCorrect) {
+        if (!passwordCorrect) {
+          res.render("auth-views/login-form", {
+            errorMessage: "Wrong password",
+          });
+        } else {
           // 4. If password is correct, login the user by creating session
           // Pass the user data to the session middleware by setting the value on:
           // req.session.currentUser
@@ -110,18 +103,6 @@ authRouter.post("/login", (req, res, next) => {
       }
     })
     .catch((err) => console.log(err));
-});
-
-// GET   '/auth/logout'
-authRouter.get("/logout", (req, res) => {
-  // We remove/destroy the session record in the database
-  req.session.destroy((err) => {
-    if (err) {
-      res.render("error", { message: "Something went wrong! Yikes!" });
-    }
-    // Redirect to the page (we choose - home page)
-    res.redirect("/");
-  });
 });
 
 module.exports = authRouter;

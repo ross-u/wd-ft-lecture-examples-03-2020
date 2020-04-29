@@ -51,6 +51,8 @@ app.use(
 );
 // Checks the response if there is data on req.session
 
+// GET   /secret
+
 // ROUTES
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
