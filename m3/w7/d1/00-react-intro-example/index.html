@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- React Core library -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+    ></script>
+
+    <!-- ReactDOM library -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+    ></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>React Intro</title>
+  </head>
+  <body>
+    <!-- root element where we want to inject the React app -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+      class App extends React.Component {
+        state = {
+          city: "Barcelona",
+        };
+
+        render() {
+          return (
+            <div>
+              <h1 className="App">Hello Ironhackers</h1>
+              <h3>React Intro</h3>
+              <p> {Math.random() * 10} </p>
+              <p> {this.state.city} </p>
+            </div>
+          );
+        }
+      }
+
+      // ReactDOM.render injects all of the React app code into the DOM
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
