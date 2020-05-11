@@ -1,0 +1,6 @@
+.Apartment {
+  background: lightskyblue;
+  display: flex;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
