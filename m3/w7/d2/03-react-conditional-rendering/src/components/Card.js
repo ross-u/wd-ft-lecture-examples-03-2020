@@ -11,6 +11,7 @@ function Card(props) {
       <h4>Rating: {props.rating}</h4>
       <p>Director: {props.director} </p>
 
+      {/* Use the ternary operator to check the value if it is truthy or falsy display some content */}
       {
           props.hasOscars 
             ? <p>Got the Oscar Award</p> 

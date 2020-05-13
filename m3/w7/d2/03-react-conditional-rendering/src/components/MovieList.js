@@ -10,6 +10,7 @@ class MovieList extends Component {
 
 
   deleteTheMovie = (id) => {
+    // Filter the movies list to return back all movies that don't include the id of the movie to delete
     const updatedMovies = this.state.movies.filter( (movie) => {
       if (movie._id !== id) return movie;
     });
@@ -18,6 +19,7 @@ class MovieList extends Component {
   }
 
   toggleMovieList = () => {
+    // 
     this.setState( { showMovies: !this.state.showMovies } )
   }
 
