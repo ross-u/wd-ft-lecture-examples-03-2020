@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import User from './components/User'
 
-// In React component is re-render in one of two ways:
-// 1. Updating the `state` of the class component -> it runs the code in render again
+// In React components re-render in one of two situation:
+// 1. By updating the `state` of the class component 
 // 2. By passing new or updated props to the component
 
 
