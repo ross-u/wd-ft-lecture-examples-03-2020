@@ -1,0 +1,59 @@
+.App{
+  margin: 0 50px;
+}
+
+.addFood{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  margin: 30px auto;
+  padding: 40px 30px;
+  border: 1px solid rgb(167, 156, 156);
+  border-radius: 10%;
+  text-align: center;
+
+}
+.addFood *{
+  margin: 3px;
+}
+.list-add{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+}
+.listOfFoods{
+  width: 280px;
+}
+.todaysFood{
+  margin-left: 30px;
+  width: 252px;
+
+}
+.todaysFood h1{
+ font-size: 30px;
+ font-weight: bold;
+
+
+}
+.todaysFood h3{
+ text-decoration: overline;
+ 
+ }
+
+.foodlisth1{
+  margin: 0 auto;
+  padding: 50px;
+  font-size: 50px;
+
+  text-align: center;
+}
+.centered{
+  margin: 10px auto;
+  text-align: center;
+  
+}
+
+.inpw{
+  width: 70px !important;
+}

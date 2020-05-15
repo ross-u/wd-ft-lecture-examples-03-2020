@@ -1,49 +1,44 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 const myProjects = [
   {
-    id: '1a',
-    name: 'The Frogger Clone',
+    id: "1a",
+    name: "The Frogger Clone",
     year: 2017,
-    technologies: 'JavaScript, jQuery',
-    description: 'The first project game clone.',
+    technologies: "JavaScript, jQuery",
+    description: "The first project game clone.",
   },
   {
-    id: '2b',
-    name: 'iTravel',
+    id: "2b",
+    name: "iTravel",
     year: 2017,
-    technologies: 'Mongo DB, ExpressJS, NodeJS, JavaScript, HTML, CSS',
+    technologies: "Mongo DB, ExpressJS, NodeJS, JavaScript, HTML, CSS",
     description:
-      'Web App that allows logged in users to share their experiences about travel destinations.',
+      "Web App that allows logged in users to share their experiences about travel destinations.",
   },
   {
-    id: '3c',
-    name: 'The Plan',
+    id: "3c",
+    name: "The Plan",
     year: 2017,
     technologies:
-      'Mongo DB, ExpressJS, Angular2, NodeJS, JavaScript, HTML, CSS',
+      "Mongo DB, ExpressJS, Angular2, NodeJS, JavaScript, HTML, CSS",
     description:
-      'Web App that allows logged in users to plan your next activity with your friends or business partners.',
+      "Web App that allows logged in users to plan your next activity with your friends or business partners.",
   },
 ];
 
 function ProjectDetailsPage(props) {
-
-  console.log('props :>> ', props);
-  console.log('props.match.params.id :>> ', props.match.params.id);
+  console.log("props :>> ", props);
+  console.log("props.match.params.id :>> ", props.match.params.id);
 
   // Get the id from props.match.params.id
   const projectId = props.match.params.id;
 
   // Find the exact project by looping over myProjects array
-  const foundProject = myProjects.find(( project ) => projectId === project.id);
+  const foundProject = myProjects.find((project) => projectId === project.id);
 
-
-  console.log('foundProject :>> ', foundProject);
-
-
+  console.log("foundProject :>> ", foundProject);
 
   return (
     <div>
@@ -53,12 +48,11 @@ function ProjectDetailsPage(props) {
       <h3>Year: {foundProject.year}</h3>
       <h3>Description: {foundProject.description}</h3>
 
-      <Link to="/projects"> 
+      <Link to="/projects">
         <button>Back To Projects</button>
       </Link>
-
     </div>
-  )
+  );
 }
 
-export default ProjectDetailsPage
+export default ProjectDetailsPage;
