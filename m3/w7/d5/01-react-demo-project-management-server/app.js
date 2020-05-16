@@ -3,9 +3,12 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const cors = require('cors');
 require("dotenv").config();
 
 const projectRouter = require('./routes/project-routes');
+const taskRouter = require('./routes/task-routes');
+
 
 const app = express();
 
@@ -34,10 +37,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 // CORS SETTINGS (MIDDLEWARE) TO ALLOW CROSS-ORIGIN INTERACTION:
-//  ...
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:3000'] // This is the origin on which our React app is running (in development)
+}))
 
 // ROUTES MIDDLEWARE:
 app.use('/api', projectRouter);
+app.use('/api', taskRouter)
 
 
 module.exports = app;
