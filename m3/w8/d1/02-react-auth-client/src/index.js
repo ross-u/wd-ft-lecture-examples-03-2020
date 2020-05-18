@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
+import { AuthProvider } from './lib/Auth';
 
 ReactDOM.render(
   <Router>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </Router>
-, document.getElementById('root'));
+  , document.getElementById('root'));

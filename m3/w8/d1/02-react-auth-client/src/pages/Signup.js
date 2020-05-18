@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { withAuth } from './../lib/Auth';
 
 class Signup extends Component {
   state = { username: "", password: "" };
@@ -31,7 +32,7 @@ class Signup extends Component {
 
           <input type="submit" value="Signup" />
         </form>
-        
+
         <p>Already have account?</p>
         <Link to={"/login"}> Login</Link>
       </div>
@@ -39,4 +40,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default withAuth(Signup);
