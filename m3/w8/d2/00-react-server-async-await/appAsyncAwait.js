@@ -9,18 +9,26 @@ const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
 require('dotenv').config();
 
-const authRouter = require('./routes/authRouter');
+const authRouter = require('./routes/authRouterAsyncAwait');
 
+// MONGOOSE CONNECTION LOADER
+async function mongooseLoader() {
+  try {
+    const connection = await mongoose.connect(process.env.MONGODB_URI, {
+      keepAlive: true,
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
 
-// MONGOOSE CONNECTION
-mongoose
-  .connect(process.env.MONGODB_URI, {
-    keepAlive: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => console.log(`Connected to database`))
-  .catch((err) => console.error(err));
+    console.log(`Connected to database`);
+    return connection;
+  } catch (error) {
+
+  }
+}
+
+mongooseLoader();
+
 
 
 // EXPRESS SERVER INSTANCE

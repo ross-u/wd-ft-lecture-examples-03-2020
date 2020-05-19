@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
 
 const { Consumer, Provider } = React.createContext();
@@ -37,7 +37,7 @@ class AuthProvider extends React.Component {
   componentDidMount() {
     // When app and AuthProvider load for the first time
     // make a call to the server '/me' and check if user is authenitcated
-    axios.get('http://localhost:5000/auth/me')
+    axios.get('http://localhost:5000/auth/me', { withCredentials: true })
       .then((response) => {
         const user = response.data;
         this.setState({ isLoggedIn: true, isLoading: false, user });

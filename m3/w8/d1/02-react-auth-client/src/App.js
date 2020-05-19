@@ -8,6 +8,10 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Private from './pages/Private';
 
+import PublicRoute from './components/PublicRoute';
+import PrivateRoute from './components/PrivateRoute';
+
+
 
 
 class App extends Component {
@@ -18,9 +22,9 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/private" component={Private} />
+          <PublicRoute exact path="/signup" component={Signup} />
+          <PublicRoute exact path="/login" component={Login} />
+          <PrivateRoute exact path="/private" component={Private} />
         </Switch>
       </div>
     );

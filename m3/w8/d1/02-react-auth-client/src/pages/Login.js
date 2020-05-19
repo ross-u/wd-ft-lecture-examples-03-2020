@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withAuth } from './../lib/Auth';
 
 class Login extends Component {
   state = { username: "", password: "" };
@@ -6,7 +7,10 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { username, password } = this.state;
-    console.log('Login -> form submit', { username, password });
+
+    this.props.login(username, password);
+    // this.props.login method is coming from the AuthProvider
+    // injected by the withAuth() HOC
   };
 
   handleChange = event => {
@@ -22,9 +26,9 @@ class Login extends Component {
         <h1>Login</h1>
 
         <form onSubmit={this.handleFormSubmit}>
-          
+
           <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange}/>
+          <input type="text" name="username" value={username} onChange={this.handleChange} />
 
           <label>Password:</label>
           <input type="password" name="password" value={password} onChange={this.handleChange} />
@@ -36,4 +40,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withAuth(Login);
